@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e6f1cea-19ec-49dc-819e-314d08d5deb6" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2sv5i00uyzqdGOA4oPpu2xqDnub" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "JUnit.AppTest.shouldAnswerWithTrue.executor": "Run",
+    "JUnit.CharacterTest.create.executor": "Run",
+    "JUnit.CharacterTest.nothing.executor": "Run",
+    "JUnit.CharacterTest.propertyTest.executor": "Run",
+    "JUnit.OwnerTest.annotationConfigApplicationContextTest.executor": "Run",
+    "JUnit.OwnerTest.autowiredTest.executor": "Run",
+    "JUnit.OwnerTest.create.executor": "Run",
+    "JUnit.OwnerTest.executor": "Run",
+    "JUnit.OwnerTest.genericXmlApplicationContext.executor": "Run",
+    "JUnit.OwnerTest.nothing.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.di [clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/JAVA/framework/01_SpringDI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.beyond.di.weapon" />
+      <recent name="com.beyond.di.pet" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.beyond.di.character" />
+      <recent name="com.beyond.di.owner" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CharacterTest.create">
+    <configuration name="CharacterTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="di" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.di.character.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.beyond.di.character" />
+      <option name="MAIN_CLASS_NAME" value="com.beyond.di.character.CharacterTest" />
+      <option name="METHOD_NAME" value="create" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CharacterTest.nothing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="di" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.di.character.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.beyond.di.character" />
+      <option name="MAIN_CLASS_NAME" value="com.beyond.di.character.CharacterTest" />
+      <option name="METHOD_NAME" value="nothing" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CharacterTest.propertyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="di" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.di.character.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.beyond.di.character" />
+      <option name="MAIN_CLASS_NAME" value="com.beyond.di.character.CharacterTest" />
+      <option name="METHOD_NAME" value="propertyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OwnerTest.annotationConfigApplicationContextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="di" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.di.owner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.beyond.di.owner" />
+      <option name="MAIN_CLASS_NAME" value="com.beyond.di.owner.OwnerTest" />
+      <option name="METHOD_NAME" value="annotationConfigApplicationContextTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OwnerTest.autowiredTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="di" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.di.owner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.beyond.di.owner" />
+      <option name="MAIN_CLASS_NAME" value="com.beyond.di.owner.OwnerTest" />
+      <option name="METHOD_NAME" value="autowiredTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CharacterTest.create" />
+        <item itemvalue="JUnit.CharacterTest.propertyTest" />
+        <item itemvalue="JUnit.CharacterTest.nothing" />
+        <item itemvalue="JUnit.OwnerTest.autowiredTest" />
+        <item itemvalue="JUnit.OwnerTest.annotationConfigApplicationContextTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e6f1cea-19ec-49dc-819e-314d08d5deb6" name="Changes" comment="" />
+      <created>1739323331995</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739323331995</updated>
+      <workItem from="1739323333147" duration="19806000" />
+      <workItem from="1739406026024" duration="17476000" />
+      <workItem from="1739428302389" duration="1650000" />
+      <workItem from="1739431274474" duration="636000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

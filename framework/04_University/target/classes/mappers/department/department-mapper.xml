@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- application.yml 에 type-aliases-package: com.beyond.university.*.model.vo 으로 인해 resultType 에 Department 넣어두 댐-->
+<!-- 쿼리문의 수행 결과를 담은 Result SEt은 result type의 객체의 조회 결과를 자동으로 매핑해서 리턴한다.
+단, 조회 결과의 컬럼명과 자바 클래스의 필드명이 동일해야 자동으로 매핑된다. (대소문자는 구분 하지 않음)
+-->
+<mapper namespace="com.beyond.university.department.model.mapper.DepartmentMapper">
+    <!--    2. result map을 이용해서 명시적으로 컬럼과 필드를 매핑한다.-->
+    <!--    result map은 DB의 조회 결과(행)와 자바 객체를 명시적으로 매핑해줄 떄 사용한다.-->
+    <resultMap id="departmentResultMap" type="Department">
+        <!--        조회 결과의 기본 키 컬럼을 매핑한다        -->
+        <!--        colomn은 조회 결과의 열이름, property는 자바 객체의 필드 이름-->
+        <id property="no" column="department_no"/>
+        <!--        조회 결과의 일반 컬럼-->
+        <result property="name" column="department_name"/>
+        <result property="category" column="category"/>
+        <result property="openYn" column="open_yn"/>
+        <result property="capacity" column="capacity"/>
+    </resultMap>
+    <select id="selectAll" resultMap="departmentResultMap">
+
+        <!-- 1. 쿼리 문에 as 별칭으로 조회되는 컬럼명을 변경한다-->
+        <!--    <select id="selectAll" resultType="Department">-->
+        --         SELECT department_no as 'no'
+        --              ,department_name as 'name'
+        --              ,category
+        --              ,open_Yn as 'openYn'
+        --              ,capacity
+        --         FROM tb_department
+        --         ORDER BY department_name ASC
+        SELECT department_no
+        ,department_name
+        ,category
+        ,open_Yn
+        ,capacity
+        FROM tb_department
+        ORDER BY department_name ASC
+    </select>
+
+</mapper>

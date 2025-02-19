@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    어노테이션 기반의 Spring MVC 기능을 활성화합니다~~~~~~~~
+      - @RequestMapping, @GetMapping, @PostMapping 등의 어노테이션을 사용할 수 있도록 해준다.
+    -->
+    <mvc:annotation-driven/>
+    <!--resources 밑에 있는 모든 폴더들 (**) , / 는 webapp 입니당-->
+    <!--
+    정적 자원(이미지, HTML, CSS,JS 등)을 제공하기 위한 매핑을 설정하는 역할
+    클라이언트로부터 http://localhost:8080/mvc/resources/images/피카츄.jpeg 요청이 오면
+    이 요청을~~ /resources/images/피카츄.jpeg 로 매핑시킨다
+    -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <!--
+   JSP 파일을 뷰(View)로 사용할 때 경로를 자동을 구성해 주는 역할을 한다.
+   ViewResolver가 prefix + 뷰이름 + suffix 형식으로 JSP 파일을 찾는다.
+    -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+        p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+
+    <!--
+    지정된 패키지(com.beyond.mvc) 아래에 있는 컴포넌트(@Controller, @Service, @Repository 등)를
+    자동으로 검색하고 bean으로 등록하게끔 하는 역할을 함
+    -->
+    <context:component-scan base-package="com.beyond.mvc"/>
+</beans>

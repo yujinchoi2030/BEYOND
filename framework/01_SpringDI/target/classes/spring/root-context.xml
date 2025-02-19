@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    Owner hong = new Owner();
+
+    hong.setName("홍길동");
+    hong.setAge(24);
+    hong.setPet(dog);
+
+    <bean id="hong" class="com.beyond.di.owner.Owner">
+        <property name="name" value="홍길동"/>
+        <property name="age" value="24"/>
+        <property name="pet" ref="dog"/>
+    </bean>
+
+    <bean id="hong" class="com.beyond.di.owner.Owner"
+          p:name="홍길동" p:age="24" p:pet-ref="dog"/>
+
+
+    Owner lee = new Owner("이몽룡", 28, cat);
+
+    <bean id="lee" class="com.beyond.di.owner.Owner">
+        <constructor-arg name="name" value="이몽룡"/>
+        name="age" == index="1"
+        <constructor-arg name="age" value="28"/>
+        <constructor-arg name="pet" ref="cat"/>
+    </bean>
+
+    p:age="28" == c:_1="28"
+    <bean id="lee" class="com.beyond.di.owner.Owner"
+          p:name="이몽룡" p:age="28" p:pet-ref="cat"/>
+
+
+    Dog dog = new Dog();
+
+    dog.setName = "멍멍이";
+
+    <bean id="dog" class="com.beyond.di.pet.Dog">
+        <property name="name" value="멍멍이"/>
+    </bean>
+
+    <bean id="dog" class="com.beyond.di.pet.Dog" p:name="멍멍이"/>
+
+
+    Cat cat = new Cat();
+
+    cat.setName = "야옹이";
+    <bean id="cat" class="com.beyond.di.pet.Cat">
+        <property name="name" value="야옹이"/>
+    </bean>
+
+    <bean id="cat" class="com.beyond.di.pet.Cat" p:name="야옹이"/>
+    -->
+
+    <!-- 다른 설정 파일을 가져오기 위해 사용되는 요소(태그) -->
+    <import resource="owner-context.xml"/>
+    <import resource="pet-context.xml"/>
+    
+    <context:component-scan base-package="com.beyond.di"/>
+    <context:property-placeholder
+            location="classpath:character.properties, classpath:driver.properties"/>
+</beans>
