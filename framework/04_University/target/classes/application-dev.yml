@@ -2,5 +2,5 @@ server:
   port: 8088
 logging:
   level:
-    '[org.springframework.web]' : debug
-    '[org.mybatis]' : debug
+    '[org.springframework.web]': debug
+    '[org.mybatis]': debug

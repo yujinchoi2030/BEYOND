@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{layout/baseLayout :: baseLayout(~{::title}, ~{:: main})}" xmlns:th="http://www.thymeleaf.org">
+<html th:replace="~{layout/baseLayout :: baseLayout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>학생 등록</title>
@@ -9,34 +9,34 @@
         <h3>학생 등록</h3>
 
         <form th:action="@{/student/register}" method="post">
-            <label for="deptNo">학과 : </label>
-            <select id="deptNo" name="deptNo">
-                <option>--------선택--------</option>
-                <option th:each="department : ${departments}"
-                        th:value="${department.no}"
-                        th:text="${department.name}">
-                </option>
-            </select>
+          <label for="deptNo">학과 : </label>
+          <select id="deptNo" name="deptNo">
+            <option>--------선택--------</option>
+            <option th:each="department : ${departments}"
+                    th:value="${department.no}"
+                    th:text="${department.name}">
+            </option>
+          </select>
 
-            <br><br>
+          <br><br>
 
-            <label for="name">이름 : </label>
-            <input type="text" id="name" name="name">
+          <label for="name">이름 : </label>
+          <input type="text" id="name" name="name">
 
-            <br><br>
+          <br><br>
 
-            <label for="ssn">주민등록번호 : </label>
-            <input type="text" id="ssn" name="ssn" maxlength="14">
+          <label for="ssn">주민등록번호 : </label>
+          <input type="text" id="ssn" name="ssn" maxlength="14">
 
-            <br><br>
+          <br><br>
 
-            <label for="address">주소 : </label>
-            <input type="text" id="address" name="address" size="50">
+          <label for="address">주소 : </label>
+          <input type="text" id="address" name="address" size="50">
 
-            <br><br>
+          <br><br>
 
-            <input type="submit" value="등록">
-            <input type="reset" value="초기화">
+          <input type="submit" value="등록">
+          <input type="reset" value="초기화">
         </form>
     </main>
 </body>

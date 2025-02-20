@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html th:replace="~{layout/baseLayout :: baseLayout(~{::title}, ~{:: main})}" xmlns:th="http://www.thymeleaf.org">
+<html th:replace="~{layout/baseLayout :: baseLayout(~{::title}, ~{::main})}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>학생 조회</title>
 </head>
 <body>
     <main>
-        <h3> 학생 조회 </h3>
+        <h3>학생 조회</h3>
 
         <form th:action="@{/student/search}" method="get"
                 th:with="deptNo=${#strings.toString(param.deptNo)}">
             <label for="deptNo">학과 : </label>
             <select name="deptNo" id="deptNo">
-                <option>-----선택-----</option>
+                <option>--------선택--------</option>
                 <option th:each="department : ${departments}"
                         th:text="${department.name}"
                         th:value="${department.no}"
                         th:selected="${deptNo eq department.no}"></option>
             </select>
-            <input type="submit" value = "검색">
+            <input type="submit" value="검색">
         </form>
 
         <br>
@@ -40,7 +40,7 @@
                 </td>
                 <td th:text="${student.name}"></td>
                 <td th:text="${student.address}"></td>
-                <td th:text="${student.absenceYn}" align="center"></td>
+                <td align="center" th:text="${student.absenceYn}"></td>
             </tr>
         </table>
     </main>
