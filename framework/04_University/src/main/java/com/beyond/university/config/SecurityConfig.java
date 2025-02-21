@@ -1,7 +1,13 @@
 package com.beyond.university.config;
 
+import com.beyond.university.auth.handler.LoginFailureHandler;
+import com.beyond.university.auth.handler.LoginSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -12,6 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -42,6 +50,8 @@ public class SecurityConfig
                                 .loginPage("/login")
                                 .usernameParameter("userId")
                                 .passwordParameter("userPwd")
+                                .successHandler(loginSuccessHandler())
+                                .failureHandler(loginFailureHandler())
                 )
                 // 로그아웃 설정
                 .logout(logout ->
@@ -50,6 +60,11 @@ public class SecurityConfig
                                 .logoutSuccessUrl("/login?logout=true")
                                 .invalidateHttpSession(true)
                                 .deleteCookies("JSESSIONID")
+                )
+                // 에러 핸들러 설정 - 권한이 없는 계정에서 잘못된 접근 시 이동할 URL을 지정한다.
+                .exceptionHandling(exception ->
+                        exception
+                            .accessDeniedPage("/accessDenied")
                 )
                 // 기억하기 기능 설정 - 한번 로그인한 사용자가 재방문했을시 브라우저가 사용자를 기억 (브라우저를 껐다켜도 가능)
                 .rememberMe(rememberMe ->
@@ -69,6 +84,8 @@ public class SecurityConfig
                             // 정적 리소스 허용
                             .requestMatchers("/js/**", "/css/**", "/images/**").permitAll()
                             .requestMatchers("/login").permitAll()
+                            .requestMatchers("/admin/**").hasRole("ADMIN")
+                            .requestMatchers("/user/**").hasAnyRole("ADMIN", "USER")
                             .anyRequest().authenticated();
                 });
 
@@ -95,10 +112,36 @@ public class SecurityConfig
 //        return new InMemoryUserDetailsManager(user, admin);
 //    }
 
+    // AuthenticationManager
+    // - 유저들에 대한 인증과 관련된 설정을 하는 객체이다.
+    @Bean
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder)
+    {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder);
+
+        return new ProviderManager(provider);
+    }
+
     @Bean
     // PasswordEncoder 설정 (BCrypt 설정)
     public BCryptPasswordEncoder bCryptPasswordEncoder()
     {
         return new BCryptPasswordEncoder();
+    }
+
+    // AuthenticationSuccessHandler, AuthenticationFailureHandler 설정
+    @Bean
+    public AuthenticationSuccessHandler loginSuccessHandler()
+    {
+        return new LoginSuccessHandler();
+    }
+
+    @Bean
+    public AuthenticationFailureHandler loginFailureHandler()
+    {
+        return new LoginFailureHandler();
     }
 }
