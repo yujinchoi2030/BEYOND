@@ -18,4 +18,10 @@ public interface DepartmentMapper
     Optional<Department> selectDepartmentByNo(@Param("deptNo") String deptNo);
 
     void insertDepartment(Department department);
+
+    void updateDepartment(Department department);
+
+    void deleteDepartment(@Param("deptNo") String deptNo);
+
+    List<Department> selectClassByDepartments(@Param("deptNo") String deptNo, RowBounds rowBounds);
 }

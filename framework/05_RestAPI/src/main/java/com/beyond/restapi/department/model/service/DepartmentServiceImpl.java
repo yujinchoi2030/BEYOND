@@ -3,6 +3,7 @@ package com.beyond.restapi.department.model.service;
 import com.beyond.restapi.department.model.mapper.DepartmentMapper;
 import com.beyond.restapi.department.model.vo.Department;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,11 +68,19 @@ public class DepartmentServiceImpl implements DepartmentService
         if(department.getNo() != null)
         {
             // update
+            departmentMapper.updateDepartment(department);
         }
         else
         {
             // insert
             departmentMapper.insertDepartment(department);
         }
+    }
+
+    @Override
+    @Transactional
+    public void delete(String deptNo)
+    {
+        departmentMapper.deleteDepartment(deptNo);
     }
 }

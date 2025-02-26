@@ -14,4 +14,6 @@ public interface DepartmentService
     Optional<Department> getDepartmentByNo(String deptNo);
 
     void save(Department department);
+
+    void delete(String deptNo);
 }
