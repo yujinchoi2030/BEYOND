@@ -129,6 +129,7 @@ public class DepartmentController
     @ApiResponses
         ({
             @ApiResponse(responseCode = "201", description = "CREATED", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+            ,@ApiResponse(responseCode = "401", description = "UNAUTHORIZED", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
             ,@ApiResponse(responseCode = "400", description = "BAD_REQUEST", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
             ,@ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
         })
@@ -150,6 +151,7 @@ public class DepartmentController
             ({
                     @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
                     ,@ApiResponse(responseCode = "400", description = "BAD_REQUEST", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+                    ,@ApiResponse(responseCode = "401", description = "UNAUTHORIZED", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
                     ,@ApiResponse(responseCode = "404", description = "NOT FOUND", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
                     ,@ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
@@ -175,6 +177,8 @@ public class DepartmentController
     @ApiResponses
             ({
                     @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+                    ,@ApiResponse(responseCode = "401", description = "UNAUTHORIZED", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+                    ,@ApiResponse(responseCode = "403", description = "FORBIDDEN", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
                     ,@ApiResponse(responseCode = "404", description = "NOT FOUND", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
                     ,@ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
             })
