@@ -3,7 +3,6 @@ package com.beyond.university.student.model.mapper;
 import com.beyond.university.student.model.vo.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.beyond.university.department.model.vo.Department;
 
 import java.util.List;
 

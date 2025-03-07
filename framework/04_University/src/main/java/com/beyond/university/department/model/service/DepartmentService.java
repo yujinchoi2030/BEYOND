@@ -8,5 +8,5 @@ public interface DepartmentService {
 
     List<Department> getDepartments();
 
-    Department getDepartmentByNo (String deptNo);
+    Department getDepartmentByNo(String deptNo);
 }

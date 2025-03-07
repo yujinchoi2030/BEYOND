@@ -23,15 +23,13 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/student")
-public class StudentController
-{
+public class StudentController {
     private final StudentService studentService;
     private final DepartmentService departmentService;
 
     @GetMapping("/search")
     public ModelAndView search(ModelAndView modelAndView,
-                               @RequestParam(required = false) String deptNo)
-    {
+                               @RequestParam(required = false) String deptNo) {
         List<DepartmentsDto> departments =
                 departmentService.getDepartments()
                                 .stream()
@@ -58,24 +56,24 @@ public class StudentController
         return modelAndView;
     }
 
+
     @GetMapping("/info")
-    public ModelAndView info(ModelAndView modelAndView, @RequestParam String sno)
-    {
+    public ModelAndView info(ModelAndView modelAndView, @RequestParam String sno) {
         Student student = studentService.getStudentByNo(sno);
         List<DepartmentsDto> departments =
                 departmentService.getDepartments()
                         .stream()
                         .map(DepartmentsDto::new)
                         .toList();
-        // 연관 관계 매핑 테스트
-        // System.out.println(student);
-        // System.out.println(student.getDepartment());
+
+//        연관 관계 매핑 테스트
+//        System.out.println(student);
+//        System.out.println(student.getDepartment());
         Department department = departmentService.getDepartmentByNo(student.getDeptNo());
+
         System.out.println(department);
 
-        //for(int i = 0; i< department.getStudents().size(); i++)
-        for (Student s : department.getStudents())
-        {
+        for (Student s : department.getStudents()) {
             System.out.println(s);
         }
 
@@ -87,8 +85,7 @@ public class StudentController
     }
 
     @GetMapping("/register")
-    public ModelAndView register(ModelAndView modelAndView)
-    {
+    public ModelAndView register(ModelAndView modelAndView) {
         List<DepartmentsDto> departments =
                 departmentService.getDepartments()
                         .stream()
@@ -102,8 +99,7 @@ public class StudentController
     }
 
     @PostMapping("/register")
-    public ModelAndView register(ModelAndView modelAndView, StudentRegisterRequestDto requestDto)
-    {
+    public ModelAndView register(ModelAndView modelAndView, StudentRegisterRequestDto requestDto) {
         int result = 0;
         Student student = requestDto.toStudent();
 
@@ -125,8 +121,7 @@ public class StudentController
     }
 
     @PostMapping("/update")
-    public ModelAndView update(ModelAndView modelAndView, StudentUpdateRequestDto requestDto)
-    {
+    public ModelAndView update(ModelAndView modelAndView, StudentUpdateRequestDto requestDto) {
         int result = 0;
         Student student = requestDto.toStudent();
 
@@ -145,8 +140,7 @@ public class StudentController
     }
 
     @PostMapping("/delete")
-    public ModelAndView delete(ModelAndView modelAndView, @RequestParam String sno)
-    {
+    public ModelAndView delete(ModelAndView modelAndView, @RequestParam String sno) {
         int result = 0;
 
         result = studentService.delete(sno);
