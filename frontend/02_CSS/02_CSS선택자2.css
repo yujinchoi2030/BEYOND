@@ -142,3 +142,31 @@ button:disabled {
     background-color: red;
     color: white;
 }
+
+/* 형제 관계 태그 중 마지막 태그 선택 */
+/* #test3>p:last-child { */
+#test3>p:last-of-type {
+    background-color: orange;
+    color: white;
+}
+
+/* 형제 관계 태그 중 수열 번째 태그 선택 */
+/* #test3>p:nth-child(2) { */
+/* #test3>p:nth-of-type(2) { */
+/* #test3>p:nth-of-type(2n + 1) { */
+/* #test3>p:nth-of-type(odd) { */
+/* #test3>p:nth-of-type(even) { */
+/* #test3>p:nth-last-child(4) { */
+#test3>p:nth-last-of-type(4) {
+    background-color: yellowgreen;
+    color: white;
+}
+
+/* 부정 선택자 */
+/* #test4>p:not(.p) { */
+/* #test4>p:not(:last-child) { */
+/* #test4>p:not(:nth-child(even)) { */
+#test4>p:not(:nth-child(odd)) {
+    background-color: aquamarine;
+    color: chocolate;
+}

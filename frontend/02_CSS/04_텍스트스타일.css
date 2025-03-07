@@ -1,0 +1,83 @@
+/* font-family */
+/* 
+body {
+    font-family: "hack";
+} 
+*/
+
+#ff1 {
+    font-family: "궁서체";
+}
+
+#ff2 {
+    font-family: "굴림체";
+}
+
+#ff3 {
+    font-family: "없는글꼴", "hack";
+}
+
+/* font-size = 글자 크기 */
+#size1{
+    font-size: 30px;
+}
+
+/* em 은 항상 부모요소의 상대적인 글자 크기를 지정할 때 사용 */
+/* rem 은 큰 차이는 없지만, 항상 최상위 요소의 글자 크기를 지정할 때 사용*/
+#size2{
+    font-size: 2em;
+}
+
+/* 
+    동일한 size2, 2em 이지만 span 은 부모 요소가 li id="size2" 이기에 더 커짐 
+    즉, 자식요소로 내려갈수록 기하급수적으로 커지거나 작아짐이 가능
+ */
+#size2>span{
+    font-size: 2rem;
+}
+
+#size3{
+    font-size: 150%;  /* = font-size: 1.5em; */
+}
+
+/* font-weight = 글자 크기 */
+#fw1{
+    font-weight: bold;
+}
+#fw2{
+    font-weight: lighter;
+}
+#fw3{
+    font-weight: bolder;
+}
+
+/* font-style */
+/* 
+    oblique 가 좀 더 부자연스럽
+ */
+#fs1{
+    font-style: italic;
+}
+#fs2{
+    font-style: oblique;
+}
+
+/* color */
+#c-name {
+    color: steelblue;
+}
+#c-16 {
+    color : #55ffee /* = color : #5fe */
+}
+/* rgba 에서 a 는 투명도 지정 0 = 투명, 1 = 불투명 */
+#c-rgb {
+    color: rgb(red,green,blue) /* = color : rgb(0,0,0) */
+}
+#c-hsl {
+    /*
+        color: hsl(hue, saturation, lightness) 
+        hue =  색상환, saturation = 채도, lightness = 밝기
+    */
+    color:hsl(0, 50%, 50%)
+    
+}
