@@ -100,8 +100,7 @@ window.onload = function() {
 }
 
 // 2) 자료형
-function typeTest()
-{
+function typeTest() {
     // 정수던 실수던 js 는 다 number 형
     let name = `홍길동`; // typeof: string
     let age = 24; // typeof: number
@@ -148,7 +147,7 @@ function typeTest()
 }
 
 // 3) 형 변환
-function castingTest(){
+function castingTest() {
     let div2 = document.getElementById('div2');
 
     div2.innerHTML = '<h4>형 변환</h4>';
@@ -175,7 +174,7 @@ function castingTest(){
 }
 
 // 2. 연산자
-function opTest(){
+function opTest() {
     let div3 = document.getElementById('div3');
     
     // == : 값!만 비교
@@ -194,5 +193,49 @@ function opTest(){
     div3.innerHTML = '<h4>!== 연산자 테스트</h4>';
     div3.innerHTML += `5 !== 6 : ${5 !== 6}<br>`; // true
     div3.innerHTML += `5 !== '5' : ${5 !== '5'}<br>`; // true
+
+}
+
+// 3. 제어문
+function forTest() {
+    let div4 = document.getElementById('div4');
+    let array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+    let user = {name: '홍길동', age: 24, height: 178.5}
+
+    // for 구문
+    // for (let i = 0; i < array.length; i++) {
+    //     div4.innerHTML += `${array[i]} `;
+    // }
+
+    // for in 구문
+    // - 배열의 경우 반복 변수(i)에 array의 index 값을 순서대로 담아서 반복한다.
+    // for (const i in array) 
+    // {
+    //     div4.innerHTML += `${array[i]} `;
+    // }
+
+    // for of 구문
+    // - 배열의 경우 value 변수에 array의 value 값을 순서대로 담아서 반복한다.
+    for(const value of array)
+    {
+        div4.innerHTML += `${value} `;
+    }
+
+    div4.innerHTML += `<br><br>`;
+
+    // for in 구문
+    // 객체의 경우 반복 변수에 user의 속성명을 순서대로 담아서 반복한다.
+    for(const key in user)
+    {
+        div4.innerHTML += `key: ${key}, type: ${typeof(key)}, value: ${user[key]}<br>`;
+    }
+
+    // for of 구문
+    // 객체의 경우 for of 구문 사용 불가
+    // Symmbol 이 있어야만 반복처리를 할수 있는데 객체는 없어서 반복 불가
+    // for(const key in user)
+    // {
+    //     div4.innerHTML += `key: ${key}, type: ${typeof(key)}, value: ${user[key]}<br>`;
+    // }
 
 }
