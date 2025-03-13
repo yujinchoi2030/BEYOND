@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM(Brower Object Model)</title>
+</head>
+<body>
+    <h2>BOM(Brower Object Model)</h2>
+
+    <h3>1. window 객체</h3>
+    <p>
+        window 객체는 브라우저 전체를 담당하는 최상위 객체이며,
+        브라우저 내의 모든 요소들과 객체들을 포함한다.
+    </p>
+
+    <h4>1) window.open()</h4>
+
+    <button id="btn1">window.open() : 실행 확인</button>
+
+    <h4>2) window.setTimeout()</h4>
+    <p>
+        일정 시간이 경과된 이후에 매개값으로 전달된 콜백 함수를 단 한 번만 실행한다.
+    </p>
+
+    <button id="btn2">window.setTimeout() : 실행 확인</button>
+
+    <h4>3) window.setIterval()</h4>
+    <p>
+        일정 시간이 경과된 이후에 매개값으로 전달된 콜백 함수를 반복해서 실행한다.
+    </p>
+
+    <button id="btnStart">실행</button>
+    <button id="btnStop">종료</button>
+
+    <p id="p1"></p>
+
+    <h3>2. location 객체</h3>
+
+    <h4>1) location.reload()</h4>
+    <p> 
+        페이지를 새로 고침하는 메서드이다.
+    </p>
+
+    <button onclick="location.reload();">location.reload() : 새로고침</button>
+    <!-- 얘는 새로고침보다 주소를 다시 입력해서 오는 것 : 그래서 페이지 최상단으로 감 -->
+    <button onclick="location.href = location.href">location.href : 새로고침</button>
+    <!-- 얘는 새로고침보다는 페이지를 재요청하는 것 -->
+    <button onclick="location = location">location : 새로고침</button>
+
+    <h4>2) location.href</h4>
+    <p>
+        현재 페이지의 URL 주소를 가지고 있는 속성으로 해당 속성 값을 변경해서 페이지를 이동할 수 있다.
+    </p>
+
+    <button onclick="location.href='https://www.naver.com'">네이버로 이동</button>
+
+    <h4>3) location.assign(), location.replace()</h4>
+    <p>
+        두 메서드 모두 페이지를 이동시키지만 replace()는 history에 기록되지 않는다.
+    </p>
+
+    <button onclick="location.assign('https://www.naver.com');">location.assign(): 네이버로 이동</button>
+    <button onclick="location.replace('https://www.naver.com');">location.replace(): 네이버로 이동</button>
+
+    <h3>3. history 객체</h3>
+    <p>
+        브라우저에서 이동한 문서의 내역을 관리하는 객체이다.
+    </p>
+
+    <!-- <button onclick="history.back();">history.back(): 뒤로 가기</button>
+    <button onclick="history.forward();">history.forward(): 앞으로 가기</button> -->
+
+    <button onclick="history.go(-1);">history.go(-1): 뒤로 가기</button>
+    <button onclick="history.go(1);">history.go(1): 앞으로 가기</button>
+
+    <script src="./06_BOM.js"></script>
+</body>
+</html>

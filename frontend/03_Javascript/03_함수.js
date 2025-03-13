@@ -102,13 +102,73 @@ function sum(...numbers){
 
 // 함수로 전달되는 값들 중에 가장 작은 값을 리턴 하시오
 function min(...numbers) {
-    let result = numbers[0];
+    // let result = numbers[0];
 
-    for (const number of numbers) {
-        if (number < result) {
-            result = number;
-        }
-    }
+    // for (const number of numbers) {
+    //     if (number < result) {
+    //         result = number;
+    //     }
+    // }
+
+    // return result;
+
+    return Math.min(numbers);
+}
+
+// 3) 함수 리턴
+// 3-1) 값을 리턴하는 함수
+// 1 ~ 100까지의 랜덤값을 리턴하는 함수
+function random() {
+    let result = 0;
+
+    result = parseInt(Math.random() * 100) + 1;
 
     return result;
 }
+
+// 3-2) 익명 함수를 리턴하는 함수
+function returnTest() {
+    let name = '홍길동';
+
+    // return function (name) {
+    //     return `안녕하세요. ${name}입니다.`;
+    // };
+
+    // 클로저
+    //  - 내부 함수가 사용하는 외부 함수의 지역 변수는 내부 함수가 소멸할 때까지
+    //    소멸하지 않는 특성을 갖는데 이러한 특성을 클로저라고 한다.
+    return function () {
+        return `${name}님 안녕하세요.`;
+    }
+}
+
+// 3. 내장 함수
+let btn3 = document.getElementById('btn3');
+
+btn3.addEventListener('click', () => {
+    let p6 = document.getElementById('p6');
+
+    // isFinite() 함수는 매개값으로 전달된 숫자가 유한한 값인지 확인한다.
+    // isNaN() 함수는 매개값으로 전달된 값이 표현할 수 없는 숫자인지 확인한다.
+    p6.innerHTML = '<h4>isFinite(), isNaN()</h4>';
+    p6.innerHTML += `10 / 0 : ${10 / 0}<br>`;
+    p6.innerHTML += `-10 / 0 : ${-10 / 0}<br>`;
+    p6.innerHTML += `isFinite(10 / 0) : ${isFinite(10 / 0)}<br>`;
+    p6.innerHTML += `isFinite(-10 / 0) : ${isFinite(-10 / 0)}<br>`;
+    p6.innerHTML += `isFinite(10 / 2) : ${isFinite(10 / 2)}<br>`;
+    p6.innerHTML += `10 / 'a' : ${10 / 'a'}<br>`;
+    p6.innerHTML += `isNaN(10 / 'a') : ${isNaN(10 / 'a')}<br>`;
+    p6.innerHTML += `isNaN(10 / 2) : ${isNaN(10 / 2)}`;
+
+    let url = 'https://www.example.com?name=홍길동&age=24&address=경기도 고양시';
+    let encodeUrl = 'https://www.example.com?name=%ED%99%8D%EA%B8%B8%EB%8F%99&age=24&address=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B3%A0%EC%96%91%EC%8B%9C';
+
+    // encodeURI() 
+    //   - URI를 인코딩 하는데 사용된다. 
+    //   - , / ? = & ; : @ + $ #은 인코딩하지 않는다.
+    // decodeURI()
+    //   - 인코딩된 URI를 디코딩 하는데 사용된다.
+    p6.innerHTML += `<h4>encodeURI(), decodeURI()</h4>`
+    p6.innerHTML += `encodeURI(url): ${encodeURI(url)}<br>`;
+    p6.innerHTML += `decodeURI(encodeUrl): ${decodeURI(encodeUrl)}<br>`;
+});
