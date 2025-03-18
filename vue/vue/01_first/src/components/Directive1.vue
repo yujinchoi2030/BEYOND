@@ -39,6 +39,17 @@
                 <!-- <input type="checkbox" v-model="agree"> 위 내용에 동의합니다. -->
                 <input type="checkbox" v-model="agree" true-value="Y" false-value="N"> 위 내용에 동의합니다.
             </label>
+
+            <br><br>
+
+            <select v-model="country">
+                <option value="">국가를 선택해 주세요.</option>
+                <option value="한국" label="한국"></option>
+                <option value="미국" label="미국"></option>
+                <option value="중국" label="중국"></option>
+                <option value="일본" label="일본"></option>
+                <option value="프랑스" label="프랑스"></option>
+            </select>
         </form>
     </div>
 </template>
@@ -54,7 +65,8 @@
                 age: 24,
                 gender: '남자',
                 hobbies: [],
-                agree: ''
+                agree: '',
+                country: ''
             }
         },
     }
