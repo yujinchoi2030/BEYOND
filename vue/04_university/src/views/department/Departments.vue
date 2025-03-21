@@ -1,6 +1,7 @@
 <template>
     <main>
-        <DepartmentTable :departments="departments"/>
+        <DepartmentTable :departments="departments"
+            @item-click="itemClick" @delete-department="deleteDepartment"/>
         <Pagination :pageInfo="pageInfo" @change-page="changePage"/>
     </main>
 </template>
@@ -49,21 +50,52 @@
         try {
             const response = await apiClient.get(`/api/v1/university-service/departments?page=${page}&numOfRows=10`);
 
-            console.log(response);
-
             departments.value = response.data.items;
             pageInfo.totalCount = response.data.totalCount;
             pageInfo.listLimit = 10;
         } catch (error) {
-            
-            console.log(error);
+            if (error.response.data.code === 404) {
+                alert(error.response.data.message);
+
+                router.push({name: 'departments'});
+            } else {
+                alert('에러가 발생했습니다.');
+            }
         }
     }
 
     const changePage = ({page, totalPages}) => {
         if (page >= 1 && page <= totalPages) {
             router.push({name: 'departments', query: {page}});
-        }        
+        }
+    };
+
+    const itemClick = (no) => {
+        router.push({name: 'departments/no', params: {no}})
+    };
+
+    const deleteDepartment = async (no) => {
+        try {
+            const response = await apiClient.delete(
+                `/api/v1/university-service/departments/${no}`
+            );
+            
+            if(response.data.code === 200) {
+                alert('정상적으로 삭제되었습니다.');
+
+                fetchDepartments(pageInfo.currentPage);
+            }
+        } catch (error) {
+            if (error.response.data.code === 403) {
+                alert('권한이 없는 사용자입니다.');
+            } else if (error.response.data.code === 404) {
+                alert(error.response.data.message);
+
+                router.push({name: 'departments'});
+            } else {
+                alert('에러가 발생했습니다.');
+            }
+        }
     };
 
     // 이미 마운트 된 컴포넌트는 URI 가 변경되었다고 해서 다시 마운트되지 않는다.
@@ -74,7 +106,7 @@
     //     fetchDepartments(pageInfo.currentPage);
     // });
 
-    // 라우트가 변경되기 전에 실행
+    // 라우트가 변경될 때 특정 로직을 실행하는 훅(Hook)이다.
     onBeforeRouteUpdate((to, form) => {
         pageInfo.currentPage = parseInt(to.query.page) || 1;
 

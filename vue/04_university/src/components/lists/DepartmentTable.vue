@@ -11,14 +11,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="department in departments" :key="department.no">
+            <tr v-for="department in departments" :key="department.no"
+                @click.stop="emit('item-click', department.no);">
                 <td>{{ department.no }}</td>
                 <td>{{ department.name }}</td>
                 <td>{{ department.category }}</td>
                 <td>{{ department.openYn }}</td>
                 <td>{{ department.capacity }}</td>
                 <td>
-                    <button type="button" class="btn btn-outline-danger">삭제</button>
+                    <button type="button" class="btn btn-outline-danger"
+                         @click.stop="confirmDelete(department.no);">삭제</button>
                 </td>
             </tr>
         </tbody>
@@ -32,4 +34,11 @@
             required: true
         }
     });
+
+    const emit = defineEmits(['item-click', 'delete-department']);
+     const confirmDelete = (no) =>{
+         if(confirm('정말로 삭제하시겠습니까?')) {
+             emit('delete-department', no);
+         }
+     }
 </script>

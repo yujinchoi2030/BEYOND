@@ -41,7 +41,7 @@ export const useAuthStore = defineStore('auth', () => {
             console.log(error);
 
             // if (error.status === 401) {
-            if (error.response.data.code === 401) {
+            if (error.response.data.code === 400) {
                 alert(error.response.data.message);
             } else {
                 alert('에러가 발생했습니다.');
