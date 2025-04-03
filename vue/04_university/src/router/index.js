@@ -41,20 +41,10 @@ const router = createRouter({
   // RouterView에 의해서 렌더링된 컴포넌트가 다시 RouterView를 이용해 자식 라우트에 매칭된 컴포넌트를 렌더링한다. 
   routes: [
     {
-      path: '/',
-      name: 'base',
-      component: BaseLayout,
+      path: '/', name: 'base', component: BaseLayout,
       children: [
-        { 
-          path: '', 
-          name: 'home', 
-          component: Home 
-        },
-        { 
-          path: 'departments', 
-          name: 'departments', 
-          component: Departments 
-        },
+        { path: '', name: 'home', component: Home },
+        { path: 'departments', name: 'departments', component: Departments },
         { 
           path: 'departments/:no', 
           name: 'departments/no', 
