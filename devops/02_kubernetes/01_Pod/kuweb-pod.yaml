@@ -1,13 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  # name: 포드 이름
   name: kuweb-pod
   # namespace: kube-test
   labels:
     app: kuweb-label
 spec:
   containers:
+    # name: 컨테이너 이름
   - name: kuweb
+    # image: 기본 이미지
     image: testweb:1.0
     # Pod의 최소 자원 요구량
     # resources가 없으면 호스트가 끌어올수있는 모든걸 끌어와서 에바띠예 

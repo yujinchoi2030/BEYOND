@@ -1,20 +1,27 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  # name: 레플리카셋 이름
   name: kuweb-replicaset
 spec:
+  # replicas: Pod 유지 개수
   replicas: 3
   selector:
     matchLabels:
+      # app: 관리할 Pod를 찾는 선택기
       app: kuweb-label
   template:
     metadata:
+      # name: 포드 이름
       name: kuweb-pod
       labels:
+        # app: 레플리카셋의 matchLabels의 항목과 동일하게 작성
         app: kuweb-label
     spec:
       containers:
+      # name: 컨테이너 이름
       - name: kuweb
+        # image: 기본 이미지
         image: testweb:1.0
         resources:
           requests:
@@ -24,5 +31,6 @@ spec:
             memory: "256Mi"
             cpu: "1000m"
         ports:
+        # containerPort: 컨테이너가 노출할 Port
         - containerPort: 8080
           protocol: TCP
