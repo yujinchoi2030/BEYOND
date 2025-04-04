@@ -1,0 +1,33 @@
+# ReplicaSet 과 별 차이 없음
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuweb-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kuweb-label
+  template:
+    metadata:
+      name: kuweb-pod
+      annotations:
+        # kubectl rollout history deploy kuweb-deployment -> change-cause 에 어떤 항목의 값이 들어가는지 지정
+        # kubectl annotate deployment kuweb-deployment kubernetes.io/change-cause="Image updated to to 2.0"
+        # -> change-cause 에 있는 값을 update 치는 명령어
+        kubernetes.io/change-cause: "Deployment Created"
+      labels:
+        app: kuweb-label
+    spec:
+      containers:
+      - name: kuweb
+        image: testweb:1.0
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 8080
